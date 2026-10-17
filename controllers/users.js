@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import Users from './models/Users';
+import Users from '../models/Users.js';
 import HttpErrors, {isHttpError} from "http-errors";
 import moment from 'moment';
 
@@ -38,7 +38,7 @@ export const controller = {
         try {
             const { email, password } = req.body;
 
-            const user = await Users.findByEmail(email);
+            const user = await Users.findOne({ where: { email } });
 
             if(!user || user.password !== user.hashPassword(password)) {
                 return next(
@@ -81,7 +81,8 @@ export const controller = {
         try {
             const { name, age, email, password } = req.body;
 
-            const emailExists = await Users.findByEmail(email);
+            const emailExists = await Users.findOne({ where: { email } });
+
 
             if (emailExists) {
                 return next(

@@ -6,10 +6,10 @@ import sequelize from './clients/db.sequelize.js';
 import './models/Posts.js';
 
 
+
 const app = express();
 
 const PORT = process.env.PORT || 3000
-
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

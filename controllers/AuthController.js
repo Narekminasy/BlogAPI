@@ -18,7 +18,7 @@ export async function findById(id) {
                                         FROM users
                                         WHERE id = ? limit 1`, [id]);
 
-        return result && result.length ? result.[0] : null;
+        return result && result.length ? result[0] : null;
     } catch (error) {
         console.error(err);
         return null;
@@ -31,7 +31,7 @@ export async function findByEmail(email) {
                                         FROM users
                                         WHERE email = ? limit 1`, [email]);
 
-        return result && result.length ? result.[0] : null;
+        return result && result.length ? result[0] : null;
     } catch (error) {
         console.error(err);
         return null;

@@ -15,6 +15,10 @@ const Posts = sequelize.define("posts", {
         type: DataTypes.TEXT,
         allowNull: false,
     },
+    userId: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+    }
 },{
     timestamps: true
 });
